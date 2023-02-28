@@ -1,6 +1,4 @@
-// ignore_for_file: avoid_print
 
-import "package:auto_size_text/auto_size_text.dart";
 import"package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:omni_organizado/Routes/routes.dart';
@@ -15,43 +13,41 @@ class OptionsCadastro extends StatefulWidget {
 class _OptionsCadastroState extends State<OptionsCadastro> {
   @override
   
- 
+    
     Widget build(BuildContext context) {
+    var _width = MediaQuery.of(context).size.width;
+    var _height = MediaQuery.of(context).size.height;
     return Scaffold(
       body:  Center(
 
           child: Column(
           
           children: [
-           const     Flexible(
+                Flexible(
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: FittedBox(
-                    child: AutoSizeText(
-                      "Olá!",
-                      style: TextStyle(fontSize: 22,fontWeight: FontWeight.w700),maxFontSize: 22,minFontSize: 11,
-                    ),
+                  child: Text(
+                    "Olá!",
+                    style: TextStyle(fontSize: _width * 1/16,fontWeight: FontWeight.w700),
                   ),
                 ),
               ),
-            const    Flexible(
+               Flexible(
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: FittedBox(
-                    child: AutoSizeText(
-                      "Seja bem vindo(a) ao nosso\naplicativo!",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),maxFontSize: 20, minFontSize: 10,
-                    ),
+                  child: Text(
+                    "Seja bem vindo(a) ao nosso\naplicativo!",
+                    style: TextStyle(fontSize: _width * 1/18, fontWeight: FontWeight.w700)
                   ),
                 ),
               ),
-              const Flexible(
+               Flexible(
                 flex: 1,
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: AutoSizeText(
+                  child: Text(
                     "Que tipo de conta deseja criar?",
-                    style: TextStyle(fontSize: 18),maxFontSize: 18,minFontSize: 8,
+                    style: TextStyle(fontSize: _width * 1/18)
                   ),
                 ),
               ),
@@ -63,7 +59,7 @@ class _OptionsCadastroState extends State<OptionsCadastro> {
                     onTap:() => (){
                       showDialog(context: context, builder: (BuildContext context){
                     return AlertDialog(
-                      title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(color: Colors.white), textAlign: TextAlign.center,)),
+                      title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
                       backgroundColor: Colors.blue,
                       content: OptioncadUser()
                     );
@@ -72,9 +68,9 @@ class _OptionsCadastroState extends State<OptionsCadastro> {
              
               }(),
             
-                    child: AutoSizeText(
+                    child: Text(
                       "Uma conta de participante de\n.eventos",
-                      style: TextStyle(fontSize: 16, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
+                      style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
                     ),
                   ),
                 ),
@@ -86,15 +82,15 @@ class _OptionsCadastroState extends State<OptionsCadastro> {
                     onTap: () {
                       Get.toNamed(Routes.CadastroOrg);
                     },
-                    child: AutoSizeText(
+                    child: Text(
                       ".Uma conta de empresa",
-                      style: TextStyle(fontSize: 16, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
+                      style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
                     ),
                   ),
                 ),
               ),
               Spacer(flex: 2,),
-              const Flexible(child: Image(image:  AssetImage("assets/images/Logo/logotitle.png")))
+              Flexible(child: Image(width: _width * 0.8,height: _height * 1/8,image:  AssetImage("assets/images/Logo/logotitle.png")))
           ],
           ),
       )

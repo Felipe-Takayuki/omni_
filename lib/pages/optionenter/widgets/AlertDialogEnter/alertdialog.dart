@@ -16,6 +16,7 @@ class _AlertDialogInicioState extends State<AlertDialogInicio> {
   @override
   Widget build(BuildContext context) {
     var grupoide = AutoSizeGroup();
+    var _width = MediaQuery.of(context).size.width;
     return Center(
       child: Container(
         decoration: BoxDecoration(   color: Color.fromRGBO(39, 127, 242, 1),borderRadius: BorderRadius.circular(30)),
@@ -25,20 +26,20 @@ class _AlertDialogInicioState extends State<AlertDialogInicio> {
               crossAxisAlignment: CrossAxisAlignment.end,
           children: [
            const Spacer(flex: 1,),
-            Flexible(flex:3,child: AutoSizeText(" Nenhuma conta  foi\n identificada neste aparelho. ", style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600, color: Colors.white, fontFamily: "Montserrat-semibold ",),maxLines: 4, minFontSize: 16,stepGranularity: 1,maxFontSize: 20,  )),      
+         Text(" Nenhuma conta  foi\n identificada neste aparelho. ", style: TextStyle(fontSize: _width * 1/18,fontWeight: FontWeight.w600, color: Colors.white, fontFamily: "Montserrat-semibold ",),maxLines: 4, ),      
            const Spacer(flex:3,),    
             Flexible(
               child: TextButton(onPressed: (){
                   Get.toNamed(Routes.Login);
               }, 
-              child:  AutoSizeText("Já possuo conta!", style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Colors.white, decoration: TextDecoration.underline, fontFamily: "Montserrat-semibold"),group: grupoide,),),
+              child: Text("Já possuo conta!", style: TextStyle(fontSize: _width * 1/20,fontWeight: FontWeight.w600,color: Colors.white, decoration: TextDecoration.underline, fontFamily: "Montserrat-semibold")),),
             ),
              const Spacer(),
             Flexible(
               child: TextButton(onPressed: (){
                Get.toNamed(Routes.Cadastro);
               }, 
-              child: FittedBox(fit: BoxFit.cover,child: AutoSizeText("Ainda não possuo conta.", style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Colors.white, decoration: TextDecoration.underline, fontFamily: "Montserrat-semibold"),minFontSize: 8,stepGranularity: 1,maxLines: 1,maxFontSize: 16,group: grupoide,))),
+              child:Text("Ainda não possuo conta.", style: TextStyle(fontSize: _width * 1/20,fontWeight: FontWeight.w600,color: Colors.white, decoration: TextDecoration.underline, fontFamily: "Montserrat-semibold"),)),
             ),
              const Spacer()
           ],

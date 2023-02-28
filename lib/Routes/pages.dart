@@ -6,14 +6,15 @@ import 'package:omni_organizado/pages/Cadastro/OptionCadastro/optionCadastro.dar
 import 'package:omni_organizado/pages/Cadastro/CadastroOrg/cadastroorg.dart';
 import 'package:omni_organizado/pages/login/OptionLogin/optionLogin.dart';
 import 'package:omni_organizado/pages/Home/HomeUser/ScreenHomeUser.dart';
+import 'package:omni_organizado/pages/Home/HomeOrg/ScreenHomeOrg.dart';
 class Pages{
   static final routes = [
     GetPage(name: Routes.Splash, page: () => SplashScreen()),
     GetPage(name: Routes.Inicio, page: () => OptionsEnter()),
-    GetPage(name: Routes.Login, page: () => OptionsLogin()),
+    GetPage(name: Routes.Login, page: () => OptionLogin()),
     GetPage(name: Routes.Cadastro, page: () =>OptionsCadastro(),),
     GetPage(name: Routes.CadastroOrg, page: () => CadastroOrg(),),
     GetPage(name: Routes.HomeUser, page: () =>HomeUser() ),
-    GetPage(name: Routes.HomeOrg, page:() => null!)
+    GetPage(name: Routes.HomeOrg, page:() => HomeOrg() )
   ];
 }

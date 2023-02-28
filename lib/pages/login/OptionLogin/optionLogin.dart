@@ -1,58 +1,54 @@
-import "package:auto_size_text/auto_size_text.dart";
+
 import"package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:omni_organizado/Routes/routes.dart';
-import 'package:omni_organizado/pages/Cadastro/CadastroUser/cadastrouser.dart';
+import 'package:omni_organizado/pages/login/LoginUser/loginuser.dart';
 import 'package:omni_organizado/pages/login/LoginOrg/loginorg.dart';
-import '../LoginUser/loginuser.dart';
-class OptionsLogin extends StatefulWidget {
-  const OptionsLogin({super.key});
+
+class OptionLogin extends StatefulWidget {
+  const OptionLogin({super.key});
 
   @override
-  State<OptionsLogin> createState() => _OptionsLoginState();
+  State<OptionLogin> createState() => _OptionLoginState();
 }
 
-class _OptionsLoginState extends State<OptionsLogin> {
+class _OptionLoginState extends State<OptionLogin> {
   @override
-  Widget build(BuildContext context) {
-     return Scaffold(
+  
+    
+    Widget build(BuildContext context) {
+    var _width = MediaQuery.of(context).size.width;
+    var _height = MediaQuery.of(context).size.height;
+    return Scaffold(
       body:  Center(
 
           child: Column(
-
-  children: [
- const     Flexible(
+          
+          children: [
+                Flexible(
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: FittedBox(
-                    child: AutoSizeText(
-                      "Olá!",
-                      style: TextStyle(fontSize: 22,fontWeight: FontWeight.w700),maxFontSize: 22,minFontSize: 11,
-                    ),
+                  child: Text(
+                    "Olá!",
+                    style: TextStyle(fontSize: _width * 1/16,fontWeight: FontWeight.w700),
                   ),
                 ),
               ),
-            const    Flexible(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: FittedBox(
-                    child: AutoSizeText(
-                      "Seja bem vindo(a)\nnovamente ao nosso\naplicativo!",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),maxFontSize: 20, minFontSize: 10,
-                    ),
-                  ),
-                ),
-              ),
-              const Flexible(
-                flex: 1,
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: AutoSizeText(
-                    "Que tipo de conta tem?",
-                    style: TextStyle(fontSize: 18),maxFontSize: 18,minFontSize: 8,
-                  ),
-                ),
-              ),
+               Align(
+                 alignment: Alignment.centerLeft,
+                 child: Text(
+                   "Seja bem vindo(a) novamente ao nosso aplicativo!",
+                   style: TextStyle(fontSize: _width * 1/16, fontWeight: FontWeight.w700)
+                 ),
+               ),
+               SizedBox(height: _height * 0.04,),
+               Align(
+                 alignment: Alignment.centerLeft,
+                 child: Text(
+                   "Que tipo de conta tem?",
+                   style: TextStyle(fontSize: _width * 1/18)
+                 ),
+               ),
               Spacer(flex: 2,),
                 Flexible(
                 child: Align(
@@ -61,19 +57,18 @@ class _OptionsLoginState extends State<OptionsLogin> {
                     onTap:() => (){
                       showDialog(context: context, builder: (BuildContext context){
                     return AlertDialog(
-                      title: Center(child: Flexible(child: Text("Conta de \nParticipante ",style: TextStyle(color: Colors.white), textAlign: TextAlign.center,))),
+                      title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
                       backgroundColor: Colors.blue,
-                      
                       content: OptionLoginUser()
                     );
                   });
-     
-     
-      }(),
-    
-                    child: AutoSizeText(
+             
+             
+              }(),
+            
+                    child: Text(
                       "Uma conta de participante de\n.eventos",
-                      style: TextStyle(fontSize: 16, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
+                      style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
                     ),
                   ),
                 ),
@@ -83,28 +78,72 @@ class _OptionsLoginState extends State<OptionsLogin> {
                   alignment: Alignment.centerRight,
                   child:  GestureDetector(
                     onTap: () {
-                       showDialog(context: context, builder: (BuildContext context){
+                      {
+                      showDialog(context: context, builder: (BuildContext context){
                     return AlertDialog(
-                      title: Center(child: Flexible(child: Text("Conta de \nParticipante ",style: TextStyle(color: Colors.white), textAlign: TextAlign.center,))),
+                      title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
                       backgroundColor: Colors.blue,
-                      
                       content: OptionLoginOrg()
                     );
                   });
-     
+             
+             
+              }
                     },
-                    child: AutoSizeText(
+                    child: Text(
                       ".Uma conta de empresa",
-                      style: TextStyle(fontSize: 16, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
+                      style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
                     ),
                   ),
                 ),
               ),
               Spacer(flex: 2,),
-              const Flexible(child: Image(image:  AssetImage("assets/images/Logo/logotitle.png")))
-  ],
+              Flexible(child: Image(width: _width * 0.8,height: _height * 1/8,image:  AssetImage("assets/images/Logo/logotitle.png")))
+          ],
           ),
       )
     );
   }
 }
+// class ColumnwithButtons extends StatefulWidget {
+//   const ColumnwithButtons({super.key});
+
+//   @override
+//   State<ColumnwithButtons> createState() => _ColumnwithButtonsState();
+// }
+
+// class _ColumnwithButtonsState extends State<ColumnwithButtons> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       crossAxisAlignment: CrossAxisAlignment.end,
+//       children: [
+//         Text("Uma conta de participante de eventos."),
+//         Text("Uma conta de empresa."),
+//       ],
+//     );
+//   }
+// }
+
+// //-----------------------------------------------------------------------------------------
+
+// class ColumnwithTexts extends StatefulWidget {
+//   const ColumnwithTexts({super.key});
+
+//   @override
+//   State<ColumnwithTexts> createState() => _ColumnwithTextsState();
+// }
+
+// class _ColumnwithTextsState extends State<ColumnwithTexts> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: [
+//         Expanded(child: Text("Olá!")),
+//         Text("Seja bem vindo(a) ao nosso\naplicativo!"),
+//         Text("Que tipo de conta deseja criar?"),
+       
+//       ],
+//     );
+//   }
+// }
