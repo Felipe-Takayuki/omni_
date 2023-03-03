@@ -16,5 +16,6 @@ class Pages{
     GetPage(name: Routes.CadastroOrg, page: () => CadastroOrg(),),
     GetPage(name: Routes.HomeUser, page: () =>HomeUser() ),
     GetPage(name: Routes.HomeOrg, page:() => HomeOrg() )
+    
   ];
 }
