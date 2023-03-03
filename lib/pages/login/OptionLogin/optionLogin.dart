@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:omni_organizado/Routes/routes.dart';
 import 'package:omni_organizado/pages/login/LoginUser/loginuser.dart';
 import 'package:omni_organizado/pages/login/LoginOrg/loginorg.dart';
+import 'package:omni_organizado/pages/login/widgets_login/buttons/buttons_login.dart';
 
 class OptionLogin extends StatefulWidget {
   const OptionLogin({super.key});
@@ -20,87 +21,89 @@ class _OptionLoginState extends State<OptionLogin> {
     var _width = MediaQuery.of(context).size.width;
     var _height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body:  Center(
-
-          child: Column(
-          
-          children: [
-                Flexible(
-                child: Align(
-                  alignment: Alignment.centerLeft,
+      body:  Container(
+  
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+              Flexible(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Olá!",
+                  style: TextStyle(fontSize: _width * 1/16,fontWeight: FontWeight.w700),
+                ),
+              ),
+            ),
+             Align(
+               alignment: Alignment.centerLeft,
+               child: Text(
+                 "Seja bem vindo(a) novamente ao nosso aplicativo!",
+                 style: TextStyle(fontSize: _width * 1/16, fontWeight: FontWeight.w700)
+               ),
+             ),
+             SizedBox(height: _height * 0.09,),
+             Align(
+               alignment: Alignment.centerLeft,
+               child: Text(
+                 "Que tipo de conta tem?",
+                 style: TextStyle(fontSize: _width * 1/18)
+               ),
+             ),
+             
+              SizedBox(height: _height *0.05,),
+               Flexible(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child:  GestureDetector(
+                  onTap: () {
+                    {
+                 showDialog(context: context, builder: (BuildContext context){
+                  return AlertDialog(
+                    title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
+                    backgroundColor: Colors.blue,
+                    content: OptionLoginUser()
+                  );
+                });
+           
+            }
+                  },
                   child: Text(
-                    "Olá!",
-                    style: TextStyle(fontSize: _width * 1/16,fontWeight: FontWeight.w700),
+                    ".Uma conta de empresa",
+                    style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
                   ),
                 ),
               ),
-               Align(
-                 alignment: Alignment.centerLeft,
-                 child: Text(
-                   "Seja bem vindo(a) novamente ao nosso aplicativo!",
-                   style: TextStyle(fontSize: _width * 1/16, fontWeight: FontWeight.w700)
-                 ),
-               ),
-               SizedBox(height: _height * 0.04,),
-               Align(
-                 alignment: Alignment.centerLeft,
-                 child: Text(
-                   "Que tipo de conta tem?",
-                   style: TextStyle(fontSize: _width * 1/18)
-                 ),
-               ),
-              Spacer(flex: 2,),
-                Flexible(
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    onTap:() => (){
-                      showDialog(context: context, builder: (BuildContext context){
-                    return AlertDialog(
-                      title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
-                      backgroundColor: Colors.blue,
-                      content: OptionLoginUser()
-                    );
-                  });
-             
-             
-              }(),
-            
-                    child: Text(
-                      "Uma conta de participante de\n.eventos",
-                      style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
-                    ),
+            ),
+
+            // --------------------------------------------------------------------------
+              Flexible(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child:  GestureDetector(
+                  onTap: () {
+                    {
+                 showDialog(context: context, builder: (BuildContext context){
+                  return AlertDialog(
+                    title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
+                    backgroundColor: Colors.blue,
+                    content: OptionLoginOrg()
+                  );
+                });
+           
+            }
+                  },
+                  child: Text(
+                    ".Uma conta de empresa",
+                    style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
                   ),
                 ),
               ),
-                Flexible(
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child:  GestureDetector(
-                    onTap: () {
-                      {
-                      showDialog(context: context, builder: (BuildContext context){
-                    return AlertDialog(
-                      title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
-                      backgroundColor: Colors.blue,
-                      content: OptionLoginOrg()
-                    );
-                  });
-             
-             
-              }
-                    },
-                    child: Text(
-                      ".Uma conta de empresa",
-                      style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
-                    ),
-                  ),
-                ),
-              ),
-              Spacer(flex: 2,),
-              Flexible(child: Image(width: _width * 0.8,height: _height * 1/8,image:  AssetImage("assets/images/Logo/logotitle.png")))
-          ],
-          ),
+            ),
+            Spacer(),
+            Flexible(child: Image(width: _width * 0.8,height: _height * 1/8,image:  AssetImage("assets/images/Logo/logotitle.png")))
+        ],
+        ),
       )
     );
   }
@@ -147,3 +150,11 @@ class _OptionLoginState extends State<OptionLogin> {
 //     );
 //   }
 // }
+
+
+
+   
+           
+
+            
+           
