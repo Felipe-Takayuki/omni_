@@ -1,10 +1,9 @@
 
 import"package:flutter/material.dart";
 import 'package:get/get.dart';
-import 'package:omni_organizado/Routes/routes.dart';
 import 'package:omni_organizado/pages/login/LoginUser/loginuser.dart';
 import 'package:omni_organizado/pages/login/LoginOrg/loginorg.dart';
-import 'package:omni_organizado/pages/login/widgets_login/buttons/buttons_login.dart';
+import 'package:omni_organizado/utils/colors/colors.dart';
 
 class OptionLogin extends StatefulWidget {
   const OptionLogin({super.key});
@@ -22,7 +21,7 @@ class _OptionLoginState extends State<OptionLogin> {
     var _height = MediaQuery.of(context).size.height;
     return Scaffold(
       body:  Container(
-  
+   padding: EdgeInsets.symmetric(horizontal: _width * 0.02),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -42,7 +41,7 @@ class _OptionLoginState extends State<OptionLogin> {
                  style: TextStyle(fontSize: _width * 1/16, fontWeight: FontWeight.w700)
                ),
              ),
-             SizedBox(height: _height * 0.09,),
+             SizedBox(height: _height * 0.08,),
              Align(
                alignment: Alignment.centerLeft,
                child: Text(
@@ -51,7 +50,7 @@ class _OptionLoginState extends State<OptionLogin> {
                ),
              ),
              
-              SizedBox(height: _height *0.05,),
+              SizedBox(height: _height *0.08,),
                Flexible(
               child: Align(
                 alignment: Alignment.centerRight,
@@ -60,7 +59,7 @@ class _OptionLoginState extends State<OptionLogin> {
                     {
                  showDialog(context: context, builder: (BuildContext context){
                   return AlertDialog(
-                    title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
+                    
                     backgroundColor: Colors.blue,
                     content: OptionLoginUser()
                   );
@@ -69,7 +68,7 @@ class _OptionLoginState extends State<OptionLogin> {
             }
                   },
                   child: Text(
-                    ".Uma conta de empresa",
+                    ".Uma conta de Participante de\neventos",
                     style: TextStyle(fontSize: _width * 1/18, fontFamily: "Montserrat", color: Color.fromRGBO(3, 1, 29, 1), decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
                   ),
                 ),
@@ -85,7 +84,7 @@ class _OptionLoginState extends State<OptionLogin> {
                     {
                  showDialog(context: context, builder: (BuildContext context){
                   return AlertDialog(
-                    title: Center(child: Text("Conta de \nParticipante ",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
+                    title: Center(child: Text("Conta de Empresa",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
                     backgroundColor: Colors.blue,
                     content: OptionLoginOrg()
                   );
