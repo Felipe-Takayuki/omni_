@@ -6,4 +6,5 @@ abstract class Routes{
   static const CadastroOrg = "/CadastroOrg";
   static const HomeUser = "/homeuser";
   static const HomeOrg = "/homeorg";
+  static const DetailsEventOrg = "/detailsOrg";
 }

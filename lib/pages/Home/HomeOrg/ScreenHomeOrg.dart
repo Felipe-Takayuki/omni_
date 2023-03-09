@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
 
+import '../../../Routes/routes.dart';
 
 class HomeOrg extends StatefulWidget {
   const HomeOrg({super.key});
@@ -97,7 +99,9 @@ class _ColunaYNState extends State<ColunaYN> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GestureDetector(onTap: (){},child: Text(" - DevMenthors", style: TextStyle(fontSize: _width * 6/100, fontFamily: "Montserrat-Regular"),)),
+                    GestureDetector(onTap: (){
+                      Get.toNamed(Routes.DetailsEventOrg);
+                    },child: Text(" - DevMenthors", style: TextStyle(fontSize: _width * 6/100, fontFamily: "Montserrat-Regular"),)),
                     Text(' - Reunião', style: TextStyle(fontSize: _width * 6/100, fontFamily: "Montserrat-Regular")),
                   ],
                 ),

@@ -84,7 +84,7 @@ class _OptionLoginState extends State<OptionLogin> {
                     {
                  showDialog(context: context, builder: (BuildContext context){
                   return AlertDialog(
-                    title: Center(child: Text("Conta de Empresa",style: TextStyle(fontSize: _width * 1/17,color: Colors.white), textAlign: TextAlign.center,)),
+                   
                     backgroundColor: Colors.blue,
                     content: OptionLoginOrg()
                   );

@@ -19,5 +19,9 @@ abstract class ListaCores{
   
     static Color listcor1 = Color.fromRGBO(42, 113, 205, 1);
     static Color listcor2 =  Color.fromRGBO(103, 116, 231, 1);
-  
+    static LinearGradient a = LinearGradient( begin:Alignment(-1, -0.012),
+                    end:Alignment(1, 0.482),colors: [
+                    ListaCores.listcor1,
+                    ListaCores.listcor2
+                    ],  );
 }

@@ -1,6 +1,8 @@
 
 import "package:flutter/material.dart";
 
+import "../widgets_home/button.dart";
+
 
 class HomeUser extends StatefulWidget {
   const HomeUser({super.key});
@@ -12,10 +14,11 @@ class HomeUser extends StatefulWidget {
 class _HomeUserState extends State<HomeUser> {
   @override
   Widget build(BuildContext context) {
+    var tamanhocontainer = MediaQuery.of(context).size.width * 0.3;
     var _width = MediaQuery.of(context).size.width;
     var _height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: SizedBox(
+      body: Container(
         width: _width * 0.98,
         height: _height * 0.98,
         child: Padding(
@@ -66,29 +69,41 @@ class _HomeUserState extends State<HomeUser> {
                     onTap: () {
                     print("click");
                     },
-                    child: Container(
-                    // Tamanho do container de Cadastrar presença ------------------------
-                    width: _width * 0.3, height: _width * 0.3,
-                     decoration: BoxDecoration(gradient: LinearGradient( begin:Alignment(-1, -0.012),
+                    child:
+                    ButtonContainer(
+                      altura: tamanhocontainer, largura: tamanhocontainer,
+                      text: Flexible(child: Padding(
+                   padding:  EdgeInsets.all(_width * 0.02),
+                   child: Text("Cadastrar presença em evento",style: TextStyle(fontSize: _width * 0.035, fontFamily: "Montserrat", color: Colors.white),)),),
+                 
+                      marginHorizontal: _width * 0.00,marginVertical: 0,gradient:  LinearGradient( begin:Alignment(-1, -0.012),
                     end:Alignment(1, 0.482),colors: [
                     Color.fromRGBO(42, 113, 205, 1),
                     Color.fromRGBO(103, 116, 231, 1)
-                    ],  ), borderRadius: BorderRadius.circular(15)),child: 
-                    // Column ------------------------------------------------------------
-                    Column(mainAxisAlignment: MainAxisAlignment.end,children: [
+                    ],  ),)
+                    //  Container(
+                    // // Tamanho do container de Cadastrar presença ------------------------
+                    // width: tamanhocontainer, height: tamanhocontainer,
+                    //  decoration: BoxDecoration(gradient: LinearGradient( begin:Alignment(-1, -0.012),
+                    // end:Alignment(1, 0.482),colors: [
+                    // Color.fromRGBO(42, 113, 205, 1),
+                    // Color.fromRGBO(103, 116, 231, 1)
+                    // ],  ), borderRadius: BorderRadius.circular(15)),child: 
+                    // // Column ------------------------------------------------------------
+                    // Column(mainAxisAlignment: MainAxisAlignment.end,children: [
                       
-                      Padding(
-                        padding:  EdgeInsets.only(left: _width * 0.01, bottom: _width * 0.01),
-                        child: Row(
-                          children: [
+                    //   Padding(
+                    //    padding:  EdgeInsets.symmetric(horizontal: _width * 0.02, vertical: _width * 0.025),
+                    //     child: Row(
+                    //       children: [
                           
-                            Flexible(child: Text("Cadastrar código\nde evento",style: TextStyle(fontSize: _width * 0.035, fontFamily: "Montserrat", color: Colors.white),)),
+                    //         Flexible(child: Text("Cadastrar presença em evento",style: TextStyle(fontSize: _width * 0.035, fontFamily: "Montserrat", color: Colors.white),)),
                                    
-                          ],
-                        ),
-                      ),
-                      ],),
-                    ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    //   ],),
+                    // ),
                       ),
 
               // button QRcode
@@ -96,55 +111,20 @@ class _HomeUserState extends State<HomeUser> {
                 onTap: () {
                 print("click");
                 },
-                child: Container(
-                // Tamanho do container de Ler Qr Code ------------------------
-                width: _width * 0.3, height: _width * 0.3,
-                 decoration: BoxDecoration(color: Color.fromRGBO(224, 232, 248, 1), borderRadius: BorderRadius.circular(15),),margin: EdgeInsets.only(
-                  left: _width * 0.03
-                 ) ,child: 
-                // Column ------------------------------------------------------------
-                
-                Column(mainAxisAlignment: MainAxisAlignment.end,children: [
-                  
-                  Padding(
-                    padding:  EdgeInsets.only(left: _width * 0.01, bottom: _width * 0.01),
-                    child: Row(
-                      children: [
-                      
-                        Flexible(child: Text("Ler QR",style: TextStyle(fontSize: _width * 0.035, fontFamily: "Montserrat", color: Color.fromARGB(255, 3, 0, 0)),)),
-                               
-                      ],
-                    ),
-                  ),
-                  ],),
-                ),
+                 child:ButtonContainer(
+                  marginHorizontal: _width * 0.02,marginVertical: 0,
+                  altura: tamanhocontainer,largura: tamanhocontainer,text:  Flexible(child: Padding(
+                   padding:  EdgeInsets.all(_width * 0.02),
+                   child: Text("Ler QR",style: TextStyle(fontSize: _width * 0.035, fontFamily: "Montserrat", color: Color.fromARGB(255, 3, 0, 0)),),
+                 )), color: Color.fromRGBO(224, 232, 248, 1),)
                       ),
                       GestureDetector(
                 onTap: () {
                 print("click");
                 },
-                child: Container(
-                // Tamanho do container de Ler Qr Code ------------------------
-                width: _width * 0.3, height: _width * 0.3,
-                 decoration: BoxDecoration(color: Color.fromRGBO(224, 232, 248, 1), borderRadius: BorderRadius.circular(15),),margin: EdgeInsets.only(
-                  left: _width * 0.03
-                 ) ,child: 
-                // Column ------------------------------------------------------------
-                
-                Column(mainAxisAlignment: MainAxisAlignment.end,children: [
-                  
-                  Padding(
-                    padding:  EdgeInsets.only(left: _width * 0.01, bottom: _width * 0.01),
-                    child: Row(
-                      children: [
-                      
-                      
-                               
-                      ],
-                    ),
-                  ),
-                  ],),
-                ),
+                child:ButtonContainer(altura: tamanhocontainer, largura: tamanhocontainer, 
+                color: Color.fromRGBO(224, 232, 248, 1),
+                text: Text(""), marginHorizontal: _width * 0.0, marginVertical: _width * 0.02)
                       ),
                 ],
               ),
@@ -156,7 +136,7 @@ class _HomeUserState extends State<HomeUser> {
               onTap: (){},
               child: Container(
               width: _width * 0.95,
-              height: _width * 0.25,
+              height: _width * 0.19,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: Color.fromRGBO(224, 232, 248, 1)),
               child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 8),
@@ -168,15 +148,16 @@ class _HomeUserState extends State<HomeUser> {
             // Caixa Azul Para marcar presença
             Container(
               // Tamanho do quadrado com Icone do Calendario
-              width: _width * 0.17,
-              height: _width * 0.17,
+              width: _width * 0.15,
+              height: _width * 0.15,
               // ------------------------------------------
               margin: EdgeInsets.only(right: _width * 0.02),
+              padding: EdgeInsets.symmetric(horizontal: _width * 0.02),
               decoration: BoxDecoration(gradient: LinearGradient( begin:Alignment(-1, -0.012),
               end:Alignment(1, 0.482),colors: [
               Color.fromRGBO(42, 113, 205, 1),
               Color.fromRGBO(103, 116, 231, 1)
-              ],  ),borderRadius: BorderRadius.circular(15)),
+              ],  ),borderRadius: BorderRadius.circular(12)),
           ),
         
           // Column ----------------------------------------------------------------------
@@ -184,8 +165,8 @@ class _HomeUserState extends State<HomeUser> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Flexible(child: Text("Calendário de eventos", style: TextStyle(fontSize: _width *0.035),)),
-              Flexible(child: Text("Confira todos seus compromissos marcados." ,style: TextStyle(fontSize: _width * 0.02),))
+              Flexible(child: Text("Calendário de eventos", style: TextStyle(fontSize: _width *0.039),)),
+              Flexible(child: Text("Confira todos seus compromissos marcados." ,style: TextStyle(fontSize: _width * 0.03),))
             ],),
             Spacer(),
               Icon(Icons.chevron_right,size: _width * 0.08 ,)
